@@ -2,7 +2,7 @@ $(function(){
 	window.editor=CodeMirror.fromTextArea($("#input")[0], {
 		lineNumbers: false,
 		tabMode: "indent",
-		mode: "markdown",
+		mode: "openmou",
 		theme: "default",
 		extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
 	});

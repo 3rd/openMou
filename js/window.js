@@ -2,6 +2,8 @@ var MenuBar=new gui.Menu({type: 'menubar'});
 
 var FileMenu=new gui.Menu();
 var ViewMenu=new gui.Menu();
+var ActionsMenu=new gui.Menu();
+var HelpMenu=new gui.Menu();
 
 var NewFileItem = new gui.MenuItem({label: 'New'});
 var OpenFileItem=new gui.MenuItem({label: 'Open'});
@@ -33,6 +35,8 @@ win.menu=MenuBar;
 
 win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}), 1);
 win.menu.insert(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 3);
+win.menu.insert(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 4);
+win.menu.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}));
 
 NewFileItem.click=NewFile;
 OpenFileItem.click=OpenFile;
