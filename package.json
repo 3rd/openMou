@@ -1,0 +1,12 @@
+{
+  "name": "Stico",
+  "main": "main.html",
+  "window": {
+    "toolbar": false,
+    "resizable": true,
+    "width": 850,
+    "min_width": 850,
+    "height": 600,
+    "min_height": 500
+  }
+}
