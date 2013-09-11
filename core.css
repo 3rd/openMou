@@ -1,10 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-
+#input {
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+	font-size:18px;
+}
+#editor {
+	background: white;
+}
 html, body {
 	margin:0;
 	padding:0;
-	font-family: Lato, sans-serif;
-	font-weight: 300;
 	height: 100%;
 	width: 100%;
 	color:#646464;
@@ -72,7 +76,15 @@ ul li {
 #input:focus {
 	outline: none;
 }
-.CodeMirror {
-	width: 100%;
-	height: 100%;
+
+@media print {
+	#leftpanel {
+		display: none !important;
+	}
+	#rightpanel {
+		width: 100% !important;
+	}
+	#divider {
+		display: none !important;
+	}
 }

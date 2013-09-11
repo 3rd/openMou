@@ -1,35 +1,41 @@
 var MenuBar=new gui.Menu({type: 'menubar'});
 
 var FileMenu=new gui.Menu();
+var ExportMenu=new gui.Menu();
+
 var ViewMenu=new gui.Menu();
+
 var ActionsMenu=new gui.Menu();
+
 var HelpMenu=new gui.Menu();
 
+/* START FILEMENU */
 var NewFileItem = new gui.MenuItem({label: 'New'});
 var OpenFileItem=new gui.MenuItem({label: 'Open'});
 var SaveFileItem=new gui.MenuItem({label: 'Save'});
 var SaveFileAsItem=new gui.MenuItem({label: 'Save As'});
 var PrintItem = new gui.MenuItem({label: 'Print'});
+
+var ExportItem = new gui.MenuItem({ label: 'Export' });
 var ExportHTMLItem = new gui.MenuItem({label: 'Export HTML'});
 var ExportPDFItem = new gui.MenuItem({label: 'Export PDF'});
-var QuitItem = new gui.MenuItem({label: 'Quit Stico'});
+ExportMenu.append(ExportHTMLItem);
+ExportMenu.append(ExportPDFItem);
+ExportItem.submenu=ExportMenu;
 
-var AdvancedViewItem = new gui.MenuItem({label: 'Advanced View'});
-var SimpleViewItem = new gui.MenuItem({label: 'Simple View'});
+var QuitItem = new gui.MenuItem({label: 'Close'});
+
 
 FileMenu.append(NewFileItem);
 FileMenu.append(OpenFileItem);
+FileMenu.append(new gui.MenuItem({ type: 'separator' }));
+FileMenu.append(QuitItem);
 FileMenu.append(SaveFileItem);
 FileMenu.append(SaveFileAsItem);
 FileMenu.append(new gui.MenuItem({ type: 'separator' }));
-FileMenu.append(PrintItem);
-FileMenu.append(ExportHTMLItem);
-FileMenu.append(ExportPDFItem);
+FileMenu.append(ExportItem);
 FileMenu.append(new gui.MenuItem({ type: 'separator' }));
-FileMenu.append(QuitItem);
-
-ViewMenu.append(AdvancedViewItem);
-ViewMenu.append(SimpleViewItem);
+FileMenu.append(PrintItem);
 
 win.menu=MenuBar;
 
@@ -46,16 +52,6 @@ PrintItem.click=Print;
 ExportHTMLItem.click=ExportHTMLAs;
 ExportPDFItem.click=ExportPDFAs;
 QuitItem.click=Exit;
-
-AdvancedViewItem.click=EnableAdvancedView;
-SimpleViewItem.click=EnableSimpleView;
-
-function EnableSimpleView(){
-	changeMode("simple");
-}
-function EnableAdvancedView(){
-	changeMode("advanced");
-}
 
 function NewFile(){
 	window.open('main.html', '_blank');

@@ -1,12 +1,12 @@
 {
-  "name": "Stico",
+  "name": "openMou",
   "main": "main.html",
   "window": {
-    "toolbar": false,
+    "toolbar": true,
     "resizable": true,
-    "width": 850,
-    "min_width": 850,
+    "width": 1000,
+    "min_width": 650,
     "height": 600,
-    "min_height": 500
+    "min_height": 400
   }
 }

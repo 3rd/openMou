@@ -13,18 +13,7 @@ function getGUID(){
 function setNewFile(filename){
     currentFile=filename;
     $("#title").text(filename);
-    if(window.simplemode) win.title=(currentFile || "Untitled") + " - Stico";
-}
-function changeMode(mode){
-    if(mode=="simple"){
-        $("#container").addClass("fullmode");
-        window.simplemode=true;
-        win.title=(currentFile || "Untitled") + " - Stico";
-    } else {
-        $("#container").removeClass("fullmode");
-        window.simplemode=false;
-        win.title="Stico";
-    }
+    win.title=(currentFile || "Untitled");
 }
 function getHTML(){
     return $("#output")[0].contentWindow.document.documentElement.outerHTML;
@@ -70,4 +59,22 @@ function runSaveFileDialog(accept, callback){
     dialog.prop("accept",accept);
     dialog.change(callback);
     dialog.trigger("click");
+}
+function readFile(fileName, callback){
+    fs.exists(fileName, function(exists) {
+        if (exists) {
+            fs.stat(fileName, function(error, stats) {
+                fs.open(fileName, "r", function(error, fd) {
+                var buffer = new Buffer(stats.size);
+                fs.read(fd, buffer, 0, buffer.length, null, function(error, bytesRead, buffer) {
+                    var data = buffer.toString("utf8", 0, buffer.length);
+                    fs.close(fd);
+                    callback(data);
+                });
+                });
+            });
+        } else {
+            alert("FNF");
+        }
+    });
 }
