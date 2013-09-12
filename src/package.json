@@ -2,7 +2,7 @@
   "name": "openMou",
   "main": "main.html",
   "window": {
-    "toolbar": true,
+    "toolbar": false,
     "resizable": true,
     "width": 1000,
     "min_width": 650,
