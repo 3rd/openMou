@@ -107,14 +107,33 @@ ImageItem.click=function(){
 	editor.replaceSelection("![image](http://)");
 };
 
-MenuBar.append(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 3);
-MenuBar.append(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 4);
-MenuBar.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
 
-win.menu=MenuBar;
 
-win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
+switch(process.platform){
+	case "win32":
+		MenuBar.append(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
+		MenuBar.append(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 3);
+		MenuBar.append(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 4);
+		MenuBar.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
+		win.menu=MenuBar;
+	break;
 
+	case "darwin":
+		win.menu=MenuBar;
+		win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
+		win.menu.insert(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 3);
+		win.menu.insert(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 4);
+		win.menu.insert(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
+	break;
+
+	default:
+		win.menu=MenuBar;
+		win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
+		win.menu.insert(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 3);
+		win.menu.insert(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 4);
+		win.menu.insert(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
+	break;
+}
 
 NewFileItem.click=NewFile;
 OpenFileItem.click=OpenFile;
