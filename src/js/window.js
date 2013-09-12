@@ -49,6 +49,7 @@ var InlineCodeItem = new gui.MenuItem({label: 'Inline Code'});
 var StrikethroughItem = new gui.MenuItem({label: 'Strikethrough'});
 var LinkItem = new gui.MenuItem({label: 'Link'});
 var ImageItem = new gui.MenuItem({label: 'Image'});
+var FullScreenItem = new gui.MenuItem({label: 'Fullscreen'});
 var InsertMenu=new gui.Menu();
 
 InsertMenu.append(CurrentDateItem);
@@ -65,53 +66,55 @@ ActionsMenu.append(StrikethroughItem);
 ActionsMenu.append(new gui.MenuItem({ type: 'separator' }));
 ActionsMenu.append(LinkItem);
 ActionsMenu.append(ImageItem);
+ViewMenu.append(FullScreenItem);
 
+FullScreenItem.click=function(){
+	win.enterFullscreen();
+};
 CopyHTMLItem.click=function(){
 	clipboard.set(getHTML(), 'text');
-}
+};
 CurrentDateItem.click=function(){
 	var currentDate = new Date();
 	var day = currentDate.getDate();
 	var month = currentDate.getMonth() + 1;
 	var year = currentDate.getFullYear();
 	editor.replaceSelection(day+"/"+month+"/"+year);
-}
+};
 CurrentTimeItem.click=function(){
 	var currentDate = new Date();
 	var hours = currentDate.getHours();
 	var minutes = currentDate.getMinutes() + 1;
 	var seconds = currentDate.getSeconds();
 	editor.replaceSelection(hours+":"+minutes+":"+seconds);
-}
+};
 StrongItem.click=function(){
 	editor.replaceSelection("**strong**");
-}
+};
 EmphasizeItem.click=function(){
 	editor.replaceSelection("*emphasize*");
-}
+};
 InlineCodeItem.click=function(){
 	editor.replaceSelection("`code`");
-}
+};
 StrikethroughItem.click=function(){
 	editor.replaceSelection("~~strike~~");
-}
+};
 LinkItem.click=function(){
 	editor.replaceSelection("[link](http://)");
-}
+};
 ImageItem.click=function(){
 	editor.replaceSelection("![image](http://)");
-}
-//win
-MenuBar.append(new gui.MenuItem({ label: 'File', submenu: FileMenu}),0);
+};
+
 MenuBar.append(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 3);
+MenuBar.append(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 4);
+MenuBar.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
 
 win.menu=MenuBar;
 
-//mac
-// win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}), 1);
-// win.menu.insert(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 3);
-// win.menu.insert(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 4);
-// win.menu.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}));
+win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
+
 
 NewFileItem.click=NewFile;
 OpenFileItem.click=OpenFile;
