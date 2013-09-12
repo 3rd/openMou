@@ -48,7 +48,7 @@ var StrikethroughItem = new gui.MenuItem({label: 'Strikethrough'});
 var LinkItem = new gui.MenuItem({label: 'Link'});
 var ImageItem = new gui.MenuItem({label: 'Image'});
 var FullScreenItem = new gui.MenuItem({label: 'Fullscreen'});
-var AutoSaveItem = new gui.MenuItem({label: 'AutoSave OFF'});
+var AutoSaveItem = new gui.MenuItem({label: 'Turn AutoSave ON'});
 
 InsertMenu.append(StrongItem);
 InsertMenu.append(EmphasizeItem);
@@ -68,14 +68,18 @@ ExtraMenu.append(AutoSaveItem);
 AutoSaveItem.click=function(){
 	if (autoSave==false && currentFile != null) {
 		autoSave=true;
-		AutoSaveItem.label = "AutoSave ON";
+		AutoSaveItem.label = "Turn AutoSave OFF";
 		AutoSave(autoSave);
+		console.log(AutoSaveItem.label);
+		renderMenu();
 	} else {
 		autoSave=false;
-		AutoSaveItem.label = "AutoSave OFF";
+		AutoSaveItem.label = "Turn AutoSave ON";
 		AutoSave(autoSave);
+		console.log(AutoSaveItem.label);
+		renderMenu();
 	}
-}
+};
 FullScreenItem.click=function(){
 	win.enterFullscreen();
 };
@@ -115,31 +119,7 @@ ImageItem.click=function(){
 	editor.replaceSelection("![image](http://)");
 };
 
-switch(process.platform){
-	case "win32":
-		MenuBar.append(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
-		MenuBar.append(new gui.MenuItem({ label: 'Insert', submenu: InsertMenu}), 3);
-		MenuBar.append(new gui.MenuItem({ label: 'Extra', submenu: ExtraMenu}), 4);
-		MenuBar.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
-		win.menu=MenuBar;
-	break;
 
-	case "darwin":
-		win.menu=MenuBar;
-		win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
-		win.menu.insert(new gui.MenuItem({ label: 'Insert', submenu: InsertMenu}), 3);
-		win.menu.insert(new gui.MenuItem({ label: 'Extra', submenu: ExtraMenu}), 4);
-		win.menu.insert(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
-	break;
-
-	default:
-		win.menu=MenuBar;
-		win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
-		win.menu.insert(new gui.MenuItem({ label: 'Insert', submenu: InsertMenu}), 3);
-		win.menu.insert(new gui.MenuItem({ label: 'Extra', submenu: ExtraMenu}), 4);
-		win.menu.insert(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
-	break;
-}
 
 NewFileItem.click=NewFile;
 OpenFileItem.click=OpenFile;
@@ -149,6 +129,8 @@ PrintItem.click=Print;
 ExportHTMLItem.click=ExportHTMLAs;
 ExportPDFItem.click=ExportPDFAs;
 QuitItem.click=Exit;
+
+renderMenu();
 
 function NewFile(){
 	window.open('main.html', '_blank');
@@ -216,6 +198,39 @@ function Print(){
 }
 function Exit(){
 	win.close();
+}
+
+function renderMenu(){
+	if (win.menu) {
+		for (var i = win.menu.items.length - 1; i >= 0; i--) {
+			win.menu.removeAt(i);
+		};
+	};
+	switch(process.platform){
+		case "win32":
+			MenuBar.append(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
+			MenuBar.append(new gui.MenuItem({ label: 'Insert', submenu: InsertMenu}), 3);
+			MenuBar.append(new gui.MenuItem({ label: 'Extra', submenu: ExtraMenu}), 4);
+			MenuBar.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
+			win.menu=MenuBar;
+		break;
+
+		case "darwin":
+			win.menu=MenuBar;
+			win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
+			win.menu.insert(new gui.MenuItem({ label: 'Insert', submenu: InsertMenu}), 3);
+			win.menu.insert(new gui.MenuItem({ label: 'Extra', submenu: ExtraMenu}), 4);
+			win.menu.insert(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
+		break;
+
+		default:
+			win.menu=MenuBar;
+			win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
+			win.menu.insert(new gui.MenuItem({ label: 'Insert', submenu: InsertMenu}), 3);
+			win.menu.insert(new gui.MenuItem({ label: 'Extra', submenu: ExtraMenu}), 4);
+			win.menu.insert(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}),5);
+		break;
+	}
 }
 
 jwerty.key('ctrl+shift+F', function(){ 
