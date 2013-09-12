@@ -60,7 +60,7 @@ function runOpenFileDialog(accept, callback){
     dialog.trigger("click");
 }
 function runSaveFileDialog(accept, callback){
-    var dialog=$("<input nwsaveas type='file'/>");
+    var dialog=$("<input nwsaveas type='file' value='x'/>");
     dialog.prop("accept",accept);
     dialog.change(callback);
     dialog.trigger("click");

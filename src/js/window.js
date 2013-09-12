@@ -230,16 +230,19 @@ function Exit(){
 	win.close();
 }
 
+/*
 win.on('close', function() {
-  if (window.currentFile === null) {
-	SaveFile();
-	console.log("We're closing...");
-	this.close(true);
+  if (window.currentFile == null) {
+	runSaveFileDialog(".md", function(){
+		if(this.value.length){
+			SaveFile();
+		}
+		win.close(true);
+	});
   } else {
-	this.close(true);
+	win.close(true);
   }
-  
-});
+});*/
 
 function renderMenu(){
 	
