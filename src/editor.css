@@ -62,6 +62,6 @@
     background:#ddd;
 }
 .CodeMirror-selected, .CodeMirror-selected *, *::-webkit-selection {
-	background:#eee !important;
+	background:#b2b2b2 !important;
 	color:white !important;
 }

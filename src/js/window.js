@@ -101,13 +101,17 @@ LinkItem.click=function(){
 ImageItem.click=function(){
 	editor.replaceSelection("![image](http://)");
 }
+MenuBar.append(new gui.MenuItem({ label: 'File', submenu: FileMenu}));
+MenuBar.append(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 3);
+MenuBar.append(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 4);
+MenuBar.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}));
 
 win.menu=MenuBar;
 
-win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}), 1);
-//win.menu.insert(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 3);
-win.menu.insert(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 4);
-win.menu.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}));
+// win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}), 1);
+// win.menu.insert(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 3);
+// win.menu.insert(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 4);
+// win.menu.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}));
 
 NewFileItem.click=NewFile;
 OpenFileItem.click=OpenFile;
