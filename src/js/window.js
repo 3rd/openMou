@@ -70,11 +70,34 @@ AutoSaveItem.click=function(){
 	if (autoSave==false && currentFile !== null) {
 		window.autoSave=true;
 		AutoSave(window.autoSave);
-		win.menu.items[2].submenu.items[2].label = "Turn AutoSave Off";
+		if (process.platform == "win32") {
+			if (win.menu) {
+				for (var i = win.menu.items.length - 1; i >= 0; i--) {
+					win.menu.removeAt(i);
+				};
+			};
+
+			AutoSaveItem.label = "Turn AutoSave Off";
+			renderMenu();
+		} else {
+			win.menu.items[2].submenu.items[2].label = "Turn AutoSave Off";
+		}
+		
 	} else {
 		window.autoSave=false;
 		AutoSave(window.autoSave);
-		win.menu.items[2].submenu.items[2].label = "Turn AutoSave On";
+		if (process.platform == "win32") {
+			if (win.menu) {
+				for (var i = win.menu.items.length - 1; i >= 0; i--) {
+					win.menu.removeAt(i);
+				};
+			};
+			
+			AutoSaveItem.label = "Turn AutoSave On";
+			renderMenu();
+		} else {
+			win.menu.items[2].submenu.items[2].label = "Turn AutoSave On";
+		}
 	}
 };
 FullScreenItem.click=function(){
