@@ -74,8 +74,8 @@ AutoSaveItem.click=function(){
 			if (win.menu) {
 				for (var i = win.menu.items.length - 1; i >= 0; i--) {
 					win.menu.removeAt(i);
-				};
-			};
+				}
+			}
 
 			AutoSaveItem.label = "Turn AutoSave Off";
 			renderMenu();
@@ -221,6 +221,17 @@ function Print(){
 function Exit(){
 	win.close();
 }
+
+win.on('close', function() {
+  if (window.currentFile === null) {
+	SaveFile();
+	console.log("We're closing...");
+	this.close(true);
+  } else {
+	this.close(true);
+  }
+  
+});
 
 function renderMenu(){
 	

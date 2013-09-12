@@ -13,6 +13,7 @@ html, body {
 	width: 100%;
 	color:#646464;
 	overflow: hidden;
+	-webkit-app-region: drag;
 }
 ul {
 	margin: 0;
