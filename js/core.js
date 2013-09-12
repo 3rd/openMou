@@ -7,3 +7,4 @@ window.simplemode=false;
 var gui = require('nw.gui');
 var fs = require('fs');
 var win=gui.Window.get();
+var clipboard = gui.Clipboard.get();
