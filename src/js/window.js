@@ -202,3 +202,28 @@ function Print(){
 function Exit(){
 	win.close();
 }
+
+jwerty.key('ctrl+shift+F', function(){ 
+	win.toggleFullscreen();
+});
+jwerty.key('cmd+shift+F', function(){ 
+	win.toggleFullscreen();
+});
+jwerty.key('ctrl+shift+S', function(){ 
+	SaveFileAs();
+});
+jwerty.key('cmd+shift+S', function(){ 
+	SaveFileAs();
+});
+jwerty.key('ctrl+o', function(){ 
+	OpenFile();
+});
+jwerty.key('cmd+o', function(){ 
+	OpenFile();
+});
+jwerty.key('ctrl+n', function(){ 
+	NewFile();
+});
+jwerty.key('cmd+n', function(){ 
+	NewFile();
+});
