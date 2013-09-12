@@ -50,10 +50,6 @@ var ImageItem = new gui.MenuItem({label: 'Image'});
 var FullScreenItem = new gui.MenuItem({label: 'Fullscreen'});
 var AutoSaveItem = new gui.MenuItem({label: 'AutoSave OFF'});
 
-
-
-InsertMenu.append(new gui.MenuItem({ type: 'separator' }));
-InsertMenu.append(new gui.MenuItem({ type: 'separator' }));
 InsertMenu.append(StrongItem);
 InsertMenu.append(EmphasizeItem);
 InsertMenu.append(InlineCodeItem);
