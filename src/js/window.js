@@ -9,20 +9,20 @@ window.autoSave = false;
 window.intervalID = 0;
 
 /* START FILEMENU */
-var NewFileItem = new gui.MenuItem({label: 'New', tooltip: "Ctrl+N / Cmd+N", icon: "../src/img/new.png"});
-var OpenFileItem=new gui.MenuItem({label: 'Open', tooltip: "Ctrl+O / Cmd+O", icon: "../src/img/open.png"});
-var SaveFileItem=new gui.MenuItem({label: 'Save', tooltip: "Ctrl+S / Cmd+S", icon: "../src/img/save.png"});
-var SaveFileAsItem=new gui.MenuItem({label: 'Save As', tooltip: "Ctrl+Shift+S / Cmd+Shift+S", icon: "../src/img/save.png"});
-var PrintItem = new gui.MenuItem({label: 'Print', tooltip: "Ctrl+P / Cmd+P", icon: "../src/img/print.png"});
+var NewFileItem = new gui.MenuItem({label: 'New', tooltip: "Ctrl+N / Cmd+N"});
+var OpenFileItem=new gui.MenuItem({label: 'Open', tooltip: "Ctrl+O / Cmd+O"});
+var SaveFileItem=new gui.MenuItem({label: 'Save', tooltip: "Ctrl+S / Cmd+S"});
+var SaveFileAsItem=new gui.MenuItem({label: 'Save As', tooltip: "Ctrl+Shift+S / Cmd+Shift+S"});
+var PrintItem = new gui.MenuItem({label: 'Print', tooltip: "Ctrl+P / Cmd+P"});
 
-var ExportItem = new gui.MenuItem({ label: 'Export', icon: "../src/img/export.png" });
-var ExportHTMLItem = new gui.MenuItem({label: 'Export HTML', icon: "../src/img/html.png"});
-var ExportPDFItem = new gui.MenuItem({label: 'Export PDF', icon: "../src/img/pdf.png"});
+var ExportItem = new gui.MenuItem({ label: 'Export'});
+var ExportHTMLItem = new gui.MenuItem({label: 'Export HTML'});
+var ExportPDFItem = new gui.MenuItem({label: 'Export PDF'});
 ExportMenu.append(ExportHTMLItem);
 ExportMenu.append(ExportPDFItem);
 ExportItem.submenu=ExportMenu;
 
-var QuitItem = new gui.MenuItem({label: 'Quit', tooltip: "Ctrl+Q / Cmd+Q", icon: "../src/img/quit.png"});
+var QuitItem = new gui.MenuItem({label: 'Quit', tooltip: "Ctrl+Q / Cmd+Q"});
 
 FileMenu.append(NewFileItem);
 FileMenu.append(OpenFileItem);
@@ -39,18 +39,18 @@ FileMenu.append(QuitItem);
 /* START ACTIONS MENU */
 var InsertMenu=new gui.Menu();
 
-var CopyHTMLItem = new gui.MenuItem({label: 'Copy HTML', icon: "../src/img/html.png"});
-var CurrentDateItem = new gui.MenuItem({label: 'Current Date', icon: "../src/img/date.png"});
-var CurrentTimeItem = new gui.MenuItem({label: 'Current Time',icon: "../src/img/time.png"});
-var StrongItem = new gui.MenuItem({label: 'Strong',icon: "../src/img/bold.png"});
-var EmphasizeItem = new gui.MenuItem({label: 'Emphasize',icon: "../src/img/italic.png"});
-var InlineCodeItem = new gui.MenuItem({label: 'Inline Code',icon: "../src/img/code.png"});
-var StrikethroughItem = new gui.MenuItem({label: 'Strikethrough',icon: "../src/img/strikethrough.png"});
-var LinkItem = new gui.MenuItem({label: 'Link',icon: "../src/img/link.png"});
-var ImageItem = new gui.MenuItem({label: 'Image', icon: "../src/img/image.png"});
-var FullScreenItem = new gui.MenuItem({label: 'Fullscreen', tooltip: "Ctrl+Shift+F / Cmd+Shift+F", icon: "../src/img/fullscreen.png"});
-var AutoSaveItem = new gui.MenuItem({label: 'Turn AutoSave ON',icon: "../src/img/autosave.png"});
-var SyntaxItem = new gui.MenuItem({label: 'Syntax Reference', icon: "../src/img/syntax.png"});
+var CopyHTMLItem = new gui.MenuItem({label: 'Copy HTML'});
+var CurrentDateItem = new gui.MenuItem({label: 'Current Date'});
+var CurrentTimeItem = new gui.MenuItem({label: 'Current Time'});
+var StrongItem = new gui.MenuItem({label: 'Strong'});
+var EmphasizeItem = new gui.MenuItem({label: 'Emphasize'});
+var InlineCodeItem = new gui.MenuItem({label: 'Inline Code'});
+var StrikethroughItem = new gui.MenuItem({label: 'Strikethrough'});
+var LinkItem = new gui.MenuItem({label: 'Link'});
+var ImageItem = new gui.MenuItem({label: 'Image'});
+var FullScreenItem = new gui.MenuItem({label: 'Fullscreen', tooltip: "Ctrl+Shift+F / Cmd+Shift+F"});
+var AutoSaveItem = new gui.MenuItem({label: 'Turn AutoSave ON'});
+var SyntaxItem = new gui.MenuItem({label: 'Syntax Reference'});
 
 InsertMenu.append(StrongItem);
 InsertMenu.append(EmphasizeItem);
