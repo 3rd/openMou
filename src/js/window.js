@@ -9,20 +9,20 @@ window.autoSave = false;
 window.intervalID = 0;
 
 /* START FILEMENU */
-var NewFileItem = new gui.MenuItem({label: 'New'});
-var OpenFileItem=new gui.MenuItem({label: 'Open'});
-var SaveFileItem=new gui.MenuItem({label: 'Save'});
-var SaveFileAsItem=new gui.MenuItem({label: 'Save As'});
-var PrintItem = new gui.MenuItem({label: 'Print'});
+var NewFileItem = new gui.MenuItem({label: 'New', tooltip: "Ctrl+N / Cmd+N", icon: "../marketing/new.png"});
+var OpenFileItem=new gui.MenuItem({label: 'Open', tooltip: "Ctrl+O / Cmd+O", icon: "../marketing/open.png"});
+var SaveFileItem=new gui.MenuItem({label: 'Save', tooltip: "Ctrl+S / Cmd+S", icon: "../marketing/save.png"});
+var SaveFileAsItem=new gui.MenuItem({label: 'Save As', tooltip: "Ctrl+Shift+S / Cmd+Shift+S", icon: "../marketing/save.png"});
+var PrintItem = new gui.MenuItem({label: 'Print', tooltip: "Ctrl+P / Cmd+P", icon: "../marketing/print.png"});
 
-var ExportItem = new gui.MenuItem({ label: 'Export' });
-var ExportHTMLItem = new gui.MenuItem({label: 'Export HTML'});
-var ExportPDFItem = new gui.MenuItem({label: 'Export PDF'});
+var ExportItem = new gui.MenuItem({ label: 'Export', icon: "../marketing/export.png" });
+var ExportHTMLItem = new gui.MenuItem({label: 'Export HTML', icon: "../marketing/html.png"});
+var ExportPDFItem = new gui.MenuItem({label: 'Export PDF', icon: "../marketing/pdf.png"});
 ExportMenu.append(ExportHTMLItem);
 ExportMenu.append(ExportPDFItem);
 ExportItem.submenu=ExportMenu;
 
-var QuitItem = new gui.MenuItem({label: 'Quit'});
+var QuitItem = new gui.MenuItem({label: 'Quit', tooltip: "Ctrl+Q / Cmd+Q", icon: "../marketing/quit.png"});
 
 FileMenu.append(NewFileItem);
 FileMenu.append(OpenFileItem);
@@ -39,18 +39,18 @@ FileMenu.append(QuitItem);
 /* START ACTIONS MENU */
 var InsertMenu=new gui.Menu();
 
-var CopyHTMLItem = new gui.MenuItem({label: 'Copy HTML'});
-var CurrentDateItem = new gui.MenuItem({label: 'Current Date'});
-var CurrentTimeItem = new gui.MenuItem({label: 'Current Time'});
-var StrongItem = new gui.MenuItem({label: 'Strong'});
-var EmphasizeItem = new gui.MenuItem({label: 'Emphasize'});
-var InlineCodeItem = new gui.MenuItem({label: 'Inline Code'});
-var StrikethroughItem = new gui.MenuItem({label: 'Strikethrough'});
-var LinkItem = new gui.MenuItem({label: 'Link'});
-var ImageItem = new gui.MenuItem({label: 'Image'});
-var FullScreenItem = new gui.MenuItem({label: 'Fullscreen'});
-var AutoSaveItem = new gui.MenuItem({label: 'Turn AutoSave ON'});
-var SyntaxItem = new gui.MenuItem({label: 'Syntax Reference'});
+var CopyHTMLItem = new gui.MenuItem({label: 'Copy HTML', icon: "../marketing/html.png"});
+var CurrentDateItem = new gui.MenuItem({label: 'Current Date', icon: "../marketing/date.png"});
+var CurrentTimeItem = new gui.MenuItem({label: 'Current Time',icon: "../marketing/time.png"});
+var StrongItem = new gui.MenuItem({label: 'Strong',icon: "../marketing/bold.png"});
+var EmphasizeItem = new gui.MenuItem({label: 'Emphasize',icon: "../marketing/italic.png"});
+var InlineCodeItem = new gui.MenuItem({label: 'Inline Code',icon: "../marketing/code.png"});
+var StrikethroughItem = new gui.MenuItem({label: 'Strikethrough',icon: "../marketing/strikethrough.png"});
+var LinkItem = new gui.MenuItem({label: 'Link',icon: "../marketing/link.png"});
+var ImageItem = new gui.MenuItem({label: 'Image', icon: "../marketing/image.png"});
+var FullScreenItem = new gui.MenuItem({label: 'Fullscreen', tooltip: "Ctrl+Shift+F / Cmd+Shift+F", icon: "../marketing/fullscreen.png"});
+var AutoSaveItem = new gui.MenuItem({label: 'Turn AutoSave ON',icon: "../marketing/autosave.png"});
+var SyntaxItem = new gui.MenuItem({label: 'Syntax Reference', icon: "../marketing/syntax.png"});
 
 InsertMenu.append(StrongItem);
 InsertMenu.append(EmphasizeItem);
