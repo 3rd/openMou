@@ -64,6 +64,7 @@ window.CodeMirror = (function() {
                   highlight: new Delayed()};
 
     themeChanged(this);
+    options.lineWrapping = true;
     if (options.lineWrapping)
       this.display.wrapper.className += " CodeMirror-wrap";
 
