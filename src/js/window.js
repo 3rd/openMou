@@ -50,6 +50,7 @@ var LinkItem = new gui.MenuItem({label: 'Link'});
 var ImageItem = new gui.MenuItem({label: 'Image'});
 var FullScreenItem = new gui.MenuItem({label: 'Fullscreen'});
 var AutoSaveItem = new gui.MenuItem({label: 'Turn AutoSave ON'});
+var SyntaxItem = new gui.MenuItem({label: 'Syntax Reference'});
 
 InsertMenu.append(StrongItem);
 InsertMenu.append(EmphasizeItem);
@@ -65,7 +66,14 @@ InsertMenu.append(CurrentTimeItem);
 ExtraMenu.append(CopyHTMLItem);
 ExtraMenu.append(FullScreenItem);
 ExtraMenu.append(AutoSaveItem);
+ExtraMenu.append(SyntaxItem);
 
+SyntaxItem.click=function(){
+	gui.Window.open("/MarkdownSyntaxReference.html",{
+		width: 500,
+		height: 700
+	});
+};
 AutoSaveItem.click=function(){
 	if (autoSave==false && currentFile !== null) {
 		window.autoSave=true;
@@ -90,8 +98,8 @@ AutoSaveItem.click=function(){
 			if (win.menu) {
 				for (var i = win.menu.items.length - 1; i >= 0; i--) {
 					win.menu.removeAt(i);
-				};
-			};
+				}
+			}
 			
 			AutoSaveItem.label = "Turn AutoSave On";
 			renderMenu();

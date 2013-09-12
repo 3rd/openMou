@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+h3, p {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 10px 20px 10px 31px;
+}
+p {
+    margin-bottom: 9px;
+}
+h3 {
+	color: #404040;
+	line-height: 36px;
+    font-size: 16px;
+}
+h2 {
+	color: #404040;
+	text-align: center;
+	margin-top: 40px;
+	padding-bottom: 10px;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+}
+pre {
+	background-color: #f0f0f0;
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #f0f0f0;
+    font-size: 11px;
+    padding: 0;
+}
+</style>
+<title>Markdown Syntax Reference</title>
+</head>
+<body>
+<h2>Part Ⅰ. Standard Markdown</h2>
+<h3>Strong and Emphasize</h3>
+<pre><code>*emphasize*   **strong**
+_emphasize_   __strong__
+</code></pre>
+<h3>Links and Email</h3>
+<p>Inline:</p>
+<pre><code>An [example](http://url.com/ "Title")
+</code></pre>
+<p>Reference-style labels (titles are optional):</p>
+<pre><code>An [example][id]. Then, anywhere
+else in the doc, define the link:
+
+  [id]: http://example.com/  "Title"
+</code></pre>
+<p>Email:</p>
+<pre><code>An email &lt;example@example.com&gt; link.
+</code></pre>
+<h3>Images</h3>
+<p>Inline (titles are optional):</p>
+<pre><code>![alt text](/path/img.jpg "Title")
+</code></pre>
+<p>Reference-style:</p>
+<pre><code>![alt text][id]
+
+[id]: /url/to/img.jpg "Title"
+</code></pre>
+<h3>Headers</h3>
+<p>Setext-style:</p>
+<pre><code>Header 1
+========
+
+Header 2
+--------
+</code></pre>
+<p>atx-style (closing #&rsquo;s are optional):</p>
+<pre><code># Header 1 #
+
+## Header 2 ##
+
+###### Header 6
+</code></pre>
+<h3>Lists</h3>
+<p>Ordered, without paragraphs:</p>
+<pre><code>1.  Foo
+2.  Bar
+</code></pre>
+<p>Unordered, with paragraphs:</p>
+<pre><code>*   A list item.
+
+    With multiple paragraphs.
+
+*   Bar
+</code></pre>
+<p>You can nest them:</p>
+<pre><code>*   Abacus
+    * answer
+*   Bubbles
+    1.  bunk
+    2.  bupkis
+        * BELITTLER
+    3. burper
+*   Cunning
+</code></pre>
+<h3>Blockquotes</h3>
+<pre><code>&gt; Email-style angle brackets
+&gt; are used for blockquotes.
+
+&gt; &gt; And, they can be nested.
+
+&gt; #### Headers in blockquotes
+&gt; 
+&gt; * You can quote a list.
+&gt; * Etc.
+</code></pre>
+<h3>Inline Code</h3>
+<pre><code>`&lt;code&gt;` spans are delimited
+by backticks.
+
+You can include literal backticks
+like `` `this` ``.
+</code></pre>
+<h3>Block Code</h3>
+<p>Indent every line of a code block by at least 4 spaces or 1 tab.</p>
+<pre><code>This is a normal paragraph.
+
+    This is a preformatted
+    code block.
+</code></pre>
+<h3>Horizontal Rules</h3>
+<p>Three or more dashes or asterisks:</p>
+<pre><code>---
+
+* * *
+
+- - - - 
+</code></pre>
+<h3>Hard Line Breaks</h3>
+<p>End a line with two or more spaces:</p>
+<pre><code>Roses are red,   
+Violets are blue.
+</code></pre>
+<h2>Part Ⅱ. Extra Syntax</h2>
+<h3>Footnotes</h3>
+<p>Footnotes work mostly like reference-style links. A footnote is made of two things: a marker in the text that will become a superscript number; a footnote definition that will be placed in a list of footnotes at the end of the document. A footnote looks like this:</p>
+<pre><code>That's some text with a footnote.[^1]
+
+[^1]: And that's the footnote.</code></pre>
+<!--<p>Footnote definitions can be found anywhere in the document, but footnotes will always be listed in the order they are linked to in the text. Note that you cannot make two links to the same footnotes: if you try, the second footnote reference will be left as plain text.</p>
+<p>Each footnote must have a distinct name. That name will be used to link footnote references to footnote definitions, but has no effect on the numbering of the footnotes. Names can contain any character valid within an id attribute in HTML.</p>
+<p>Footnotes can contain block-level elements, which means that you can put multiple paragraphs, lists, blockquotes and so on in a footnote. It works the same as for list items: just indent the following paragraphs by four spaces in the footnote definition:</p>
+<pre><code>That's some text with a footnote.[^1]
+
+[^1]: And that's the footnote.
+
+    That's the second paragraph.
+</code></pre>
+<p>If you want things to align better, you can leave the first line of the footnote empty and put your first paragraph just below:</p>
+<pre><code>[^1]:
+    And that's the footnote.
+
+    That's the second paragraph.</code></pre>-->
+<h3>Strikethrough</h3>
+<p>Wrap with 2 tilde ~ characters:</p>
+<pre><code>~~Strikethrough~~</code></pre>
+<h3>Fenced Code Blocks</h3>
+<p>Start with a line containing 3 or more backtick ` characters, and ends with the first line with the same number of backtick `:</p>
+<pre><code>```
+Fenced code blocks are like Stardard
+Markdown’s regular code blocks, except that
+they’re not indented and instead rely on a
+start and end fence lines to delimit the code
+block.
+```</code></pre>
+<h3>Tables</h3>
+<p>A simple table looks like this:</p>
+<pre><code>First Header | Second Header | Third Header
+------------ | ------------- | ------------
+Content Cell | Content Cell  | Content Cell
+Content Cell | Content Cell  | Content Cell
+</code></pre>
+<p>If you wish, you can add a leading and tailing pipe to each line of the table:</p>
+<pre><code>| First Header | Second Header | Third Header |
+| ------------ | ------------- | ------------ |
+| Content Cell | Content Cell  | Content Cell |
+| Content Cell | Content Cell  | Content Cell |
+</code></pre>
+<p>Specify alignement for each column by adding colons to separator lines:</p>
+<pre><code>First Header | Second Header | Third Header
+:----------- | :-----------: | -----------:
+Left         | Center        | Right
+Left         | Center        | Right
+</code></pre>
+<h3>Anchor</h3>
+<p>You can also add an anchor for an element such as Headers, then you can link to this anchor anywhere, when you click that link in the Preview view, it'll auto scroll to the place of the destination anchor.</p>
+<p>For example below is a normal h2 Header:</p>
+<pre><code>## This is an example
+</code></pre>
+<p>Now we add an anchor for it, here we use the name "anchor1" for the anchor, of course you can use any name you want.</p>
+<pre><code>## [This is an example](id:anchor1)
+</code></pre>
+<p>If you want to link to this anchor, simply write like this:</p>
+<pre><code>Click this [link](#anchor1) in the Preview view will auto scroll to the place of the destination anchor.
+</code></pre>
+</body>
+</html>
