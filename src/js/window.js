@@ -101,7 +101,7 @@ LinkItem.click=function(){
 ImageItem.click=function(){
 	editor.replaceSelection("![image](http://)");
 }
-MenuBar.append(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1 );
+MenuBar.append(new gui.MenuItem({ label: 'File', submenu: FileMenu}),0);
 // MenuBar.append(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 3);
 MenuBar.append(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 3);
 // MenuBar.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}));
