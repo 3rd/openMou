@@ -30,7 +30,12 @@ function writeFile(path, content){
 function writePDF(outputfile, html){
     var tempfile = 'stico_'+getGUID()+'.html';
     fs.writeFileSync(tempfile, html);
-    var cmd="bin/wkhtmltopdf";
+    if (process.platform == "darwin") {
+        var cmd="bin/mac/wkhtmltopdf";
+    } else {
+        var cmd="bin/win/wkhtmltopdf.exe";
+    }
+    
     var execFile = require ('child_process').execFile, child;
     child = execFile(cmd, [tempfile, outputfile],
     function(error,stdout,stderr) {
