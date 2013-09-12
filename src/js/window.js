@@ -5,7 +5,8 @@ var ExportMenu=new gui.Menu();
 var ExtraMenu=new gui.Menu();
 var HelpMenu=new gui.Menu();
 
-var autoSave=false;
+window.autoSave = false;
+window.intervalID = 0;
 
 /* START FILEMENU */
 var NewFileItem = new gui.MenuItem({label: 'New'});
@@ -66,18 +67,14 @@ ExtraMenu.append(FullScreenItem);
 ExtraMenu.append(AutoSaveItem);
 
 AutoSaveItem.click=function(){
-	if (autoSave==false && currentFile != null) {
-		autoSave=true;
-		AutoSaveItem.label = "Turn AutoSave OFF";
-		AutoSave(autoSave);
-		console.log(AutoSaveItem.label);
-		renderMenu();
+	if (autoSave==false && currentFile !== null) {
+		window.autoSave=true;
+		AutoSave(window.autoSave);
+		win.menu.items[2].submenu.items[2].label = "Turn AutoSave Off";
 	} else {
-		autoSave=false;
-		AutoSaveItem.label = "Turn AutoSave ON";
-		AutoSave(autoSave);
-		console.log(AutoSaveItem.label);
-		renderMenu();
+		window.autoSave=false;
+		AutoSave(window.autoSave);
+		win.menu.items[2].submenu.items[2].label = "Turn AutoSave On";
 	}
 };
 FullScreenItem.click=function(){
@@ -166,8 +163,10 @@ function SaveFile(){
 
 function AutoSave(autoSave){
 	if (autoSave) {
-		window.setInterval(SaveFile,10000);
-	};
+		intervalID = window.setInterval(SaveFile,10000);
+	} else {
+		window.clearInterval(intervalID);
+	}
 }
 
 function SaveFileAs(){
@@ -201,11 +200,7 @@ function Exit(){
 }
 
 function renderMenu(){
-	if (win.menu) {
-		for (var i = win.menu.items.length - 1; i >= 0; i--) {
-			win.menu.removeAt(i);
-		};
-	};
+	
 	switch(process.platform){
 		case "win32":
 			MenuBar.append(new gui.MenuItem({ label: 'File', submenu: FileMenu}),1);
@@ -233,42 +228,42 @@ function renderMenu(){
 	}
 }
 
-jwerty.key('ctrl+shift+F', function(){ 
+jwerty.key('ctrl+shift+F', function(){
 	win.toggleFullscreen();
 });
-jwerty.key('cmd+shift+F', function(){ 
+jwerty.key('cmd+shift+F', function(){
 	win.toggleFullscreen();
 });
-jwerty.key('ctrl+shift+S', function(){ 
+jwerty.key('ctrl+shift+S', function(){
 	SaveFileAs();
 });
-jwerty.key('cmd+shift+S', function(){ 
+jwerty.key('cmd+shift+S', function(){
 	SaveFileAs();
 });
-jwerty.key('ctrl+s', function(){ 
+jwerty.key('ctrl+s', function(){
 	SaveFile();
 });
-jwerty.key('cmd+s', function(){ 
+jwerty.key('cmd+s', function(){
 	SaveFile();
 });
-jwerty.key('ctrl+o', function(){ 
+jwerty.key('ctrl+o', function(){
 	OpenFile();
 });
-jwerty.key('cmd+o', function(){ 
+jwerty.key('cmd+o', function(){
 	OpenFile();
 });
-jwerty.key('ctrl+n', function(){ 
+jwerty.key('ctrl+n', function(){
 	NewFile();
 });
-jwerty.key('cmd+n', function(){ 
+jwerty.key('cmd+n', function(){
 	NewFile();
 });
-jwerty.key('ctrl+p', function(){ 
+jwerty.key('ctrl+p', function(){
 	Print();
 });
-jwerty.key('cmd+p', function(){ 
+jwerty.key('cmd+p', function(){
 	Print();
 });
-jwerty.key('ctrl+q', function(){ 
+jwerty.key('ctrl+q', function(){
 	Exit();
 });
