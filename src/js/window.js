@@ -101,13 +101,13 @@ LinkItem.click=function(){
 ImageItem.click=function(){
 	editor.replaceSelection("![image](http://)");
 }
+//win
 MenuBar.append(new gui.MenuItem({ label: 'File', submenu: FileMenu}),0);
-// MenuBar.append(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 3);
 MenuBar.append(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 3);
-// MenuBar.append(new gui.MenuItem({ label: 'Help', submenu: HelpMenu}));
 
 win.menu=MenuBar;
 
+//mac
 // win.menu.insert(new gui.MenuItem({ label: 'File', submenu: FileMenu}), 1);
 // win.menu.insert(new gui.MenuItem({ label: 'View', submenu: ViewMenu}), 3);
 // win.menu.insert(new gui.MenuItem({ label: 'Actions', submenu: ActionsMenu}), 4);
