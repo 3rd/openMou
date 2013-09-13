@@ -3,7 +3,6 @@
 ![openMou logo](http://i41.tinypic.com/aelkx5.jpg)
 
 
-
 ###Description
 
 **openMou** is a *(guess what)* live Markdown editor. It is **open-source**, **multi-platform** and **sexy**.
@@ -19,6 +18,9 @@ Special thanks:
 * zepto.js
 * jqwerty.js
 * Mou
+
+---
+![screenshot](http://img34.imageshack.us/img34/8471/2uo.png)
 
 ---
 
